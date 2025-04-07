@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Structured Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <style>
+        .item-method {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .paddingtop30 {
+            padding-top: 30px;
+        }
+
+        .card-icons {
+            max-width: 100px;
+        }
+
+        .mgtop60 {
+            margin-top: 60px;
+        }
+
+        .paddingtopbot30 {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+
+        .second-section {
+            background-color: black;
+            color: white !important
+        }
+
+        .padding-section {
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+
+        .nav-img {
+            width: 120px;
+            height: 70px;
+        }
+
+        .navbar-toggler {
+            background: white !important;
+        }
+
+        .navbar {
+            text-transform: uppercase;
+            color: white;
+            background: black;
+            font-weight: bold;
+        }
+
+        .nav-link {
+            color: white !important;
+        }
+
+        .fitness-title {
+            color: #e9b908;
+            font-size: 40px;
+            text-transform: uppercase;
+        }
+
+        .left-banner-content h1 {
+            font-weight: bolder;
+        }
+
+        .left-banner-content {
+            padding: 50px;
+            margin-top: 20px;
+        }
+
+        .left-banner-content p {
+            padding-top: 30px;
+
+        }
+
+        .first-banner-img {
+
+            background-size: cover;
+            height: 500px;
+            width: 100%;
+
+        }
+
+        .carousel {
+            background: #f8f9fa;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 40px;
+        }
+
+        .fitness-title {
+            font-weight: bold;
+        }
+
+        .carousel-cell {
+            width: 50%;
+
+            height: 650px;
+            margin-right: 10px;
+            overflow: hidden;
+        }
+
+        .carousel-cell img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .main-banner {
+            background-color: #000;
+            color: white;
+            padding: 50px 0;
+        }
+
+        .banner-btn {
+            margin-top: 20px;
+        }
+
+        .card-wrapper {
+            padding: 50px 15px;
+            background-color: #fff;
+        }
+
+        .socialicons {
+            border: none;
+        }
+
+        .demarrer {
+            border: none;
+            padding: 16px 42px;
+            color: black;
+            background-color: #e9b908;
+            text-decoration: none;
+            text-transform: uppercase;
+            max-width: fit-content;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .demarrer:hover {
+            padding: 16px 42px;
+            color: black;
+            background-color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            max-width: fit-content;
+            font-weight: bold;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(100%);
+                /* Inizia da destra */
+            }
+
+            100% {
+                transform: translateX(-100%);
+                /* Finisce a sinistra */
+            }
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card-item {
+            background: linear-gradient(145deg, #ffffff, #e6e9ef);
+            border-radius: 15px;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1), -4px -4px 10px rgba(255, 255, 255, 0.7);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.2), -8px -8px 20px rgba(255, 255, 255, 0.8);
+        }
+
+        .card-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-content h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: black;
+            margin-bottom: 0.8rem;
+        }
+
+        .card-content p {
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .card-content ul {
+            list-style-type: disc;
+            padding-left: 1rem;
+            margin: 0;
+        }
+
+        .card-content ul li {
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .card-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .card-actions button {
+            border: none;
+            background: #0056d6;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .card-actions button:hover {
+            background-color: #0044aa;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .card-content h3 {
+                font-size: 1.2rem;
+            }
+
+            .card-content p {
+                font-size: 0.9rem;
+            }
+
+            .card-item img {
+                height: 150px;
+            }
+        }
+
+        .padding0bot {
+            padding-bottom: 0px;
+        }
+
+        .testimonials {
+
+            background: white;
+            text-align: center;
+        }
+
+        .slider {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .slide {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slide blockquote {
+            font-style: italic;
+            margin: 0;
+            color: #555;
+        }
+
+        .slide blockquote p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .slide blockquote footer {
+            font-weight: bold;
+            color: #e9b908;
+        }
+
+        .flickity-prev-next-button {
+            background: none;
+            border: none;
+            fill: #e9b908;
+            width: 40px;
+            height: 40px;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .flickity-prev-next-button:hover {
+            opacity: 1;
+        }
+
+        .flickity-page-dots {
+            bottom: -20px;
+        }
+
+        .flickity-page-dots .dot {
+            background: #bbb;
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+
+        .flickity-page-dots .dot.is-selected {
+            background: #e9b908;
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                padding: 1.5rem;
+            }
+
+            .slide blockquote p {
+                font-size: 1rem;
+            }
+        }
+
+        .mgbot40 {
+            margin-bottom: 90px;
+        }
+
+        .card-formule {
+            background: black;
+            color: white;
+            padding: 40px;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-radius: 15px;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1), -4px -4px 10px rgba(255, 255, 255, 0.7);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-formule:hover {
+            transform: translateY(-10px);
+            box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.2), -8px -8px 20px rgba(255, 255, 255, 0.8);
+        }
+
+        .card-formule-title {
+            font-size: 20px;
+            text-align: center;
+            color: #ecd40a;
+            margin-bottom: 20px;
+        }
+
+        .card-formule-header {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
+        }
+
+        .card-formule-price {
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+            color: #ecd40a;
+        }
+
+        .card-formule-subtitle {
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .Link-formule {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid;
+            max-width: 100%;
+            margin: 0 auto;
+            margin-top: 13px;
+            margin-bottom: 13px;
+        }
+
+        .link-formule:hover {
+            border: 5px solid #ecd40a;
+            background: #ecd40a;
+            color: black;
+            padding: 10px;
+            margin: 12px;
+            border-radius: 5px;
+        }
+
+        .link-formule a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .description-formules {
+            display: flex;
+            gap: 10px;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .formules-desc i {
+            margin-right: 10px;
+        }
+
+
+        .formules-desc .fa-check {
+            color: green;
+        }
+
+        .formules-descs .fa-times {
+            color: red;
+        }
+
+        .formules-descs {
+            color: rgb(122, 118, 118);
+        }
+
+        .btn {
+            text-align: center;
+            color: white;
+            display: flex;
+            padding: 10px;
+            border: 1px solid;
+            margin: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="images2.png" class="nav-img" alt="Logo">
+            </a>
+            <button class=" navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Formulaires Coaching</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Transformation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Blog</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="main-banner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center">
+
+                    <img src="images1.png" alt="Banner Image" class="banner-image">
+                </div>
+
+                <div class="col-md-6">
+                    <div class="left-banner-content">
+                        <div class="left-banner-title">
+                            <h1>NUTRITION SPECIALIST DOUBLE CERTIFICATION : </h1>
+                            <span class="fitness-title">Ssa / Training</span>
+                        </div>
+                        <p>Apprenez à vous transformer grâce à un programme de Coaching fitness et diététique conçu sur
+                            mesure pour faire la différence, peu importe votre niveau de départ.</p>
+                        <div class="banner-btn">
+                            <a href="#" class="btn demarrer me-2">Démarrer maintenant</a>
+                            <a href="#" class="btn btn-outline-secondary socialicons"><i class='fab fa-instagram'
+                                    style='font-size:24px; color:white;'></i></a>
+                            <a href="#" class="btn btn-outline-secondary socialicons"><i class='fab fa-whatsapp'
+                                    style='font-size:24px; color:white;'></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card-wrapper">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="fitness-title">Zenutri Fitness : Transformation</h2>
+                <p class="paddingtopbot30">
+                    Je vous aiderai à forger votre mental car lors de cette aventure, il n'y a pas que le physique
+                    qui change, votre discipline et votre esprit en sortiront plus forts.
+                </p>
+            </div>
+            <div class="carousel"
+                data-flickity='{ "wrapAround": true, "autoPlay": 3000, "pageDots": true, "prevNextButtons": true, "groupCells": 2 }'>
+                <div class="carousel-cell">
+                    <img src="image3.png" alt="Image 1">
+                </div>
+                <div class="carousel-cell">
+                    <img src="image4.png" alt="Image 2">
+                </div>
+                <div class="carousel-cell">
+                    <img src="image5.png" alt="Image 3">
+                </div>
+                <div class="carousel-cell">
+                    <img src="image6.png" alt="Image 4">
+                </div>
+                <div class="carousel-cell">
+                    <img src="image7.png" alt="Image 5">
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="padding-section second-section">
+        <div>
+
+            <div class="container">
+
+                <div class="row">
+                    <div class="text-center">
+                        <h2 class="fitness-title">UNE METHODE UNIQUE, PRECISE ET EFFICACE</h2>
+
+                        <p class="paddingtop30">
+                            Chaque personne a son métabolisme, son train de vie, son passif, ses points forts, ses
+                            points faibles.
+                            Ma mission consiste à vous donner les moyens pour réussir à progresser, à tenir sur la durée
+                            et surtout,
+                            à garder l'équilibre avec vie sociale et objectifs personnels.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="container mgtop60">
+                    <div class="row">
+                        <!-- Card 1 -->
+                        <div class="col-md-3">
+                            <div class="item-method text-center mb-4">
+                                <img src="symbl1.png" class="card-icons" alt="...">
+                                <div class="card-body p-3">
+                                    <p class="card-text">Gérez le timing de la nutrition</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="col-md-3">
+                            <div class="item-method text-center mb-4">
+                                <img src="symbl2.png" class="card-icons" alt="...">
+                                <div class="card-body p-3">
+                                    <p class="card-text">Cyclez la diète et les entraînements</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="col-md-3">
+                            <div class="item-method text-center mb-4">
+                                <img src="symbl3.png" class="card-icons" alt="...">
+                                <div class="">
+                                    <p class="card-text">Alliez tension mécanique et stress métabolique</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- Card 4 -->
+                        <div class="col-md-3">
+                            <div class="item-method text-center mb-4">
+                                <img src="symbl4.png" class="card-icons" alt="...">
+                                <div class="p-3">
+                                    <p class="card-text">Régalez-vous avec un cheat meal</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="padding0bot">
+        <div class="container py-5" style="background-color: white;">
+            <!-- Title -->
+            <div class="text-center mb-4">
+                <span class="fitness-title">ENSEIGNEMENT D'EXPERT</span>
+            </div>
+
+            <!-- Cards Section -->
+            <div class="card-grid">
+                <div class="card-item">
+                    <img src="card1.png" alt="Nutrition Image">
+                    <div class="card-content">
+                        <h3>Nutrition & Diététique Sportive</h3>
+                        <p>
+                            Je dispose de trois diplômes dans le domaine de la nutrition et diététique sportive qui
+                            m'ont permis d'accompagner de nombreux sportifs de haut niveau dans les compétitions les
+                            plus
+                            prestigieuses:
+                        </p>
+                        <ul>
+                            <li>Conseiller en Nutrition (Ecole 5.3)</li>
+                            <li>Expert en Diététique Sportive (SSCS TRAINING)</li>
+                            <li>Specialist in Sports Nutrition (ISSA)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="card2.png" alt="Transformation Success">
+                    <div class="card-content">
+                        <h3>Transformation de Corps</h3>
+                        <p>
+                            Plusieurs années de travail avec mes élèves m'ont permis de transformer des centaines de
+                            corps avec, littéralement, un taux de réussite de 99%.
+                        </p>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="card3.png" alt="Continuous Learning">
+                    <div class="card-content">
+                        <h3>Évolution Continue</h3>
+                        <p>
+                            Je ne reste pas sur mes acquis. Je cherche constamment à me former, m'éduquer et
+                            apprendre, car les sciences de la nutrition et de l'entraînement n'échappent pas à la règle
+                            suivante: tout évolue, et il faut savoir s'adapter.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="slider"
+            data-flickity='{ "wrapAround": true, "autoPlay": 5000, "pauseAutoPlayOnHover": true, "pageDots": true, "prevNextButtons": true }'>
+            <div class="slide">
+                <blockquote>
+                    <p>Je me fais un repas plaisir tous les 2 jours et j’ai le meilleur corps que j’ai jamais eu, je
+                        l’aurais jamais imaginé.</p>
+                    <footer>- Alex</footer>
+                </blockquote>
+            </div>
+            <div class="slide">
+                <blockquote>
+                    <p>Ton Ebook est tellement complet et précis, j'ai jamais autant appris en peu de temps et progressé
+                        en appliquant tout ! Merci merci merci ZENUTRI.</p>
+                    <footer>- Clement</footer>
+                </blockquote>
+            </div>
+            <div class="slide">
+                <blockquote>
+                    <p>Le seul coach qui a réussi à faire ressortir mes abdos et ça c'est énorme pour moi.</p>
+                    <footer>- Stephane</footer>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+    <section class="padding-section formules">
+
+    </section>
+    <section>
+        <div class="newcontainer mgbot40">
+            <div class="row">
+
+                <div class="col-md-4">
+                    <div class="card-formule">
+                        <div class="card-formule-title">SANS SUIVI</div>
+                        <div class="card-formule-header text-center">
+                            <div class="card-formule-subtitle">A partire de</div>
+                            <div class="card-formule-price">59.00 €</div>
+                        </div>
+                        <div class="link-formule"><a href="formule sans suivi.html" class="btn">Voir les Formules</a>
+                        </div>
+                        <div class="description-formules">
+                            <div class="formules-desc"><i class="fas fa-check"></i> PLAN D'ENTRAÎNEMENT PERSONNALISÉ
+                            </div>
+                            <div class="formules-desc"><i class="fas fa-check"></i> NUTRITION/DIÈTE PERSONNALISÉE</div>
+                            <div class="formules-desc"><i class="fas fa-check"></i> CHEATMEAL INCLUS</div>
+                            <div class="formules-descs"><i class="fas fa-times"></i> BILAN COACHING HEBDOMADAIRE</div>
+                            <div class="formules-descs"><i class="fas fa-times"></i> RÉADAPTATION SELON BILAN</div>
+                            <div class="formules-descs"><i class="fas fa-times"></i> COACHING RÉACTIF PAR MAIL SOUS 48h
+                            </div>
+                            <div class="formules-descs"><i class="fas fa-times"></i> ÉCHANGES PAR MESSAGES WHATSAPP
+                                ILLIMITÉS</div>
+                            <div class="formules-descs"><i class="fas fa-times"></i> 30 MINUTES DE VISIO PAR SEMAINE
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card-formule">
+                        <div class="card-formule-title">AVEC SUIVI</div>
+                        <div class="card-formule-header text-center">
+                            <div class="card-formule-subtitle">A partire de</div>
+                            <div class="card-formule-price">129.00 €</div>
+                        </div>
+                        <div class="link-formule"><a href="formule avec suivi.html" class="btn">Voir les Formules</a>
+                        </div>
+                        <div class="description-formules">
+                            <div class="formules-desc"><i class="fas fa-check"></i> PLAN D'ENTRAÎNEMENT PERSONNALISÉ
+                            </div>
+                            <div class="formules-desc"><i class="fas fa-check"></i> NUTRITION/DIÈTE PERSONNALISÉE</div>
+                            <div class="formules-desc"><i class="fas fa-check"></i> CHEATMEAL INCLUS</div>
+                            <div class="formules-desc"><i class="fas fa-check"></i> BILAN COACHING HEBDOMADAIRE</div>
+                            <div class="formules-desc"><i class="fas fa-check"></i> RÉADAPTATION SELON BILAN</div>
+                            <div class="formules-desc"><i class="fas fa-check"></i> COACHING RÉACTIF PAR MAIL SOUS 48H
+                            </div>
+                            <div class="formules-descs"><i class="fas fa-times"></i> ÉCHANGES PAR MESSAGES WHATSAPP
+                                ILLIMITÉS</div>
+                            <div class="formules-descs"><i class="fas fa-times"></i> 30 MINUTES DE VISIO PAR SEMAINE
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card-formule">
+                        <div class="card-formule-title">PACK VIP</div>
+                        <div class="card-formule-header text-center">
+                            <div class="card-formule-subtitle">A partire de</div>
+                            <div class="card-formule-price">299.00 €</div>
+
+                        </div>
+                        <div class="link-formule"><a href="formule vip.html" class="btn">Voir les Formules</a></div>
+                        <div class="description-formules">
+                            <div class="formules-desc"><i class="fas fa-check"></i> PLAN D'ENTRAÎNEMENT PERSONNALISÉ
+                            </div>
+                            <div class="formules-desc"><i class="fas fa-check"></i> NUTRITION/DIÈTE PERSONNALISÉE</div>
+                            <div class="formules-desc"><i class="fas fa-check"></i> CHEATMEAL INCLUS</div>
+                            <div class="formules-desc"><i class="fas fa-check"></i> BILAN COACHING HEBDOMADAIRE</div>
+                            <div class="formules-desc"><i class="fas fa-check"></i> RÉADAPTATION SELON BILAN</div>
+                            <div class="formules-desc"><i class="fas fa-check"></i> COACHING RÉACTIF PAR MAIL SOUS 48H
+                            </div>
+                            <div class="formules-desc"><i class="fas fa-check"></i> ÉCHANGES PAR MESSAGES WHATSAPP
+                                ILLIMITÉS</div>
+                            <div class="formules-desc"><i class="fas fa-check"></i> 30 MINUTES DE VISIO PAR SEMAINE
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <footer>
+        <style>
+            /* General Footer Styling */
+            .footerdiv {
+
+                background-color: #f7f9fc;
+                color: #333;
+                font-weight: bold;
+                padding: 2rem 1rem;
+            }
+
+            /* Layout Styling */
+            .newcontainer {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+                gap: 2rem;
+                flex-wrap: wrap;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            /* Left Section */
+            .left {
+                flex: 1;
+                min-width: 300px;
+            }
+
+            .left h1 {
+                font-size: 2rem;
+                font-weight: bold;
+                color: #e9b908;
+                margin-bottom: 1rem;
+            }
+
+            .left .dot {
+                color: #e9b908;
+            }
+
+            .left p {
+                font-size: 1rem;
+                line-height: 1.5;
+                color: #555;
+            }
+
+            /* Social Icons */
+            .social-icons {
+                margin-top: 1rem;
+            }
+
+            .social-icons a {
+                color: #e9b908;
+                font-size: 1.5rem;
+                margin-right: 1rem;
+                transition: color 0.3s ease;
+            }
+
+            .social-icons a:hover {
+                color: #0056b3;
+            }
+
+            /* Right Section */
+            .right {
+                flex: 1;
+                min-width: 300px;
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .right form {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .right input[type="text"],
+            .right input[type="email"] {
+                width: 100%;
+                padding: 0.8rem;
+                font-size: 1rem;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                transition: border-color 0.3s ease;
+            }
+
+            .right input[type="text"]:focus,
+            .right input[type="email"]:focus {
+                border-color: #e9b908;
+                outline: none;
+            }
+
+            .right button {
+                padding: 0.8rem;
+                font-size: 1rem;
+                background-color: #e9b908;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+
+            .right button:hover {
+                background-color: #0056b3;
+            }
+
+            .right p {
+                font-size: 0.9rem;
+                color: #666;
+                line-height: 1.5;
+            }
+
+            /* Footer Links */
+            .footer {
+                text-align: center;
+                margin-top: 2rem;
+            }
+
+            .footer a {
+                font-size: 0.9rem;
+                color: #e9b908;
+                margin: 0 0.5rem;
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+
+            .footer a:hover {
+                color: #0056b3;
+                text-decoration: underline;
+            }
+
+            .footer p {
+                font-size: 0.9rem;
+                color: #555;
+                margin-top: 0.5rem;
+            }
+
+            /* Responsive Design */
+            @media (max-width: 768px) {
+                .newcontainer {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .left,
+                .right {
+                    text-align: center;
+                }
+
+                .social-icons {
+                    justify-content: center;
+                }
+            }
+        </style>
+
+        <div class="footerdiv">
+            <div class="newcontainer">
+                <div class="left">
+                    <h1>NEWS<br>LETTER<span class="dot">.</span></h1>
+                    <p>Rejoignez ma newsletter pour être sûr(e) de ne pas manquer les nouveaux e-books, offres
+                        promotionnelles, ou success stories !</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="right">
+                    <form>
+                        <input type="text" name="name" placeholder="Name">
+                        <input type="email" name="email" placeholder="Email">
+                        <button type="submit" style="background-color: black !important; font-weight: bold;">S'INSCRIRE
+                            À LA NEWSLETTER</button>
+                    </form>
+                    <p>En vous inscrivant à la newsletter, vous acceptez de recevoir des mails de ZENUTRI. Vous pourrez
+                        vous désabonner à tout moment.</p>
+                </div>
+            </div>
+            <div class="footer">
+                <a href="#">CONDITIONS GÉNÉRALES</a>
+                <a href="#">MENTIONS LÉGALES</a>
+                <p>© 2024 ZenutriCoaching. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
